@@ -37,7 +37,13 @@ return {
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },                 }, {
                         { name = 'buffer' },
-                    })
+                    }),
+                formatting = {
+                    format = function(entry, item)
+                        item = require("tailwindcss-colorizer-cmp").formatter(entry, item)
+                        return item
+                    end,
+                },
             })
         end,
     },
