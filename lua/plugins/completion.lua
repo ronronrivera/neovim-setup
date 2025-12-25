@@ -16,6 +16,18 @@ return {
             local cmp = require'cmp'
             require("luasnip.loaders.from_vscode").lazy_load()
 
+            require("luasnip.loaders.from_vscode").lazy_load({
+                paths = { vim.fn.stdpath("data") .. "/lazy/friendly-snippets" }, -- optional, usually auto-detected
+                include = { "javascriptreact", "typescriptreact", "javascript", "typescript", "react-native" },
+            })
+
+
+            local luasnip = require("luasnip")
+            vim.keymap.set("i", "<C-k>", function() luasnip.expand_or_jump() end, { silent = true })
+            vim.keymap.set("s", "<C-k>", function() luasnip.expand_or_jump() end, { silent = true })
+            vim.keymap.set("i", "<C-j>", function() luasnip.jump(-1) end, { silent = true })
+            vim.keymap.set("s", "<C-j>", function() luasnip.jump(-1) end, { silent = true })
+
             cmp.setup({
                 snippet = {
                     expand = function(args)
