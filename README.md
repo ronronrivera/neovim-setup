@@ -2,7 +2,8 @@
 
 A compact, modular Neovim setup using folke/lazy.nvim for plugin management.
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f4fb1e48-32c6-465c-89d0-f2b6775111a4" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/872dd206-b1e3-4f54-b40b-d800ddd4e8c0" />
+
 
 ---
 
