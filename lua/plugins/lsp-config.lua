@@ -27,6 +27,19 @@ return {
         config = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+            vim.api.nvim_create_autocmd({ "FileType" }, {
+                pattern = { "markdown", "markdown_inline" },
+                callback = function(args)
+                    local buf = args.buf
+                    vim.schedule(function()
+                        if vim.api.nvim_buf_is_valid(buf) then
+                            pcall(vim.treesitter.stop, buf)
+                            vim.bo[buf].syntax = 'markdown'
+                        end
+                    end)
+                end,
+            })
+
             vim.o.updatetime = 300
             vim.api.nvim_create_autocmd("CursorHold", {
                 callback = function()
